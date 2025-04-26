@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palettes | Timber & Thread</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+
+    .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+.logo .logo-text {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+  }
+
+.nav-links, .nav-icons {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a, .nav-icons a {
+    text-decoration: none;
+    color: #333;
+}
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: url('banner.jpeg') no-repeat center/cover;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #393636;
+            font-size: 36px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .palette-buttons {
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            background-color:#A3779A;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .description {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .palette {
+            width: 100%;
+            height: 150px;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .explore-btn {
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .explore-btn:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-text">Timber&Thread.</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="product.html">Products</a></li>
+            <li><a href="inspo.html">Inspirations</a></li>
+            <li><a href="color.html">Colour Palatte</a></li>
+            <li><a href="prof.html">Professionals</a></li>
+            <li><a href="magazine.html">Magazine</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="nav-icons">
+            <li><a href="#"><span class="icon">🔍</span></a></li>
+            <li><a href="#"><span class="icon">👤</span></a></li>
+            <li><a href="#"><span class="icon">🌐</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Explore Color Palettes</h1>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2>Select Your Preferred Season</h2>
+        <div class="palette-buttons">
+            <button onclick="loadPalette('summer')">Summer</button>
+            <button onclick="loadPalette('winter')">Winter</button>
+            <button onclick="loadPalette('autumn')">Autumn</button>
+        </div>
+
+        <div class="description" id="description">
+            <p>Select a season to see recommended color palettes and their ideal use in home décor and furniture.</p>
+        </div>
+
+        <div class="grid" id="palette-grid">
+            <!-- Palettes will load dynamically here -->
+        </div>
+
+        <a href="inspiration.html" class="explore-btn">Explore More Inspirations</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Timber & Thread. All rights reserved
+    </footer>
+
+    <script>
+        // Sample Palette Data
+        const palettes = {
+            summer: {
+                description: "Summer palettes bring vibrant and fresh vibes to your home. These colors work well with minimalistic decor, coastal themes, and airy spaces. Ideal for living rooms, bedrooms, and outdoor seating areas.",
+                data: [
+                    { colors: ['#FEE2B3', '#FBC687', '#F0A177', '#E3715B'], title: 'Tropical Vibes' },
+                    { colors: ['#D5E8D4', '#A9DBB8', '#7DC4A4', '#4DA88D'], title: 'Soft Greens' },
+                    { colors: ['#FFDAB9', '#FFB6B9', '#FFA6C1', '#F18D9E'], title: 'Beachside Glow' }
+                ]
+            },
+            winter: {
+                description: "Winter palettes offer cool, calm, and sophisticated tones that suit modern interiors. Great for creating cozy atmospheres in living rooms, home offices, and libraries.",
+                data: [
+                    { colors: ['#E8ECF3', '#BFD7EA', '#8FA3BF', '#5B798E'], title: 'Icy Blues' },
+                    { colors: ['#DDD5D0', '#BBB4B0', '#928A86', '#6C615F'], title: 'Warm Greys' },
+                    { colors: ['#F3F1F5', '#D3CEDF', '#A7A0B2', '#7D7187'], title: 'Snowy Elegance' }
+                ]
+            },
+            autumn: {
+                description: "Autumn palettes bring earthy, rich, and warm tones. These palettes fit perfectly with rustic furniture, wood accents, and cozy fabrics. Ideal for dining rooms, kitchens, and bedrooms.",
+                data: [
+                    { colors: ['#7D5A50', '#B4846C', '#E5B181', '#F6E4B4'], title: 'Warm Earth Tones' },
+                    { colors: ['#5B4B3A', '#8E705B', '#C0A785', '#E3D6C1'], title: 'Rustic Comfort' },
+                    { colors: ['#754C29', '#B77B5F', '#E9A77E', '#F4CCB0'], title: 'Golden Autumn' }
+                ]
+            }
+        };
+
+        // Load Palettes Dynamically
+        function loadPalette(season) {
+            const paletteData = palettes[season];
+            const grid = document.getElementById('palette-grid');
+            const description = document.getElementById('description');
+
+            // Update Description
+            description.innerHTML = `<p>${paletteData.description}</p>`;
+
+            // Clear Previous Palettes
+            grid.innerHTML = '';
+
+            // Generate Palette Cards
+            paletteData.data.forEach(palette => {
+                const colors = palette.colors.map(color => `<div class="palette" style="background-color: ${color};"></div>`).join('');
+                grid.innerHTML += `
+                    <div class="card">
+                        ${colors}
+                        <div class="card-content">
+                            <h3>${palette.title}</h3>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+    </script>
+
+</body>
+</html>
